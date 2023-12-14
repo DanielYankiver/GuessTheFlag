@@ -28,6 +28,7 @@ struct ContentView: View {
     }
   }
   
+  
   func executeDelete() {
     print("Now deleting...")
   }
