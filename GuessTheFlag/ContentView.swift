@@ -9,9 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    RadialGradient(colors: [.blue, .black], center: .center, startRadius: 20, endRadius: 200)
+    VStack {
+      Image(systemName: "exclamationmark.icloud")
+        .foregroundColor(.red)
+        .font(.largeTitle)
 
-    .ignoresSafeArea()
+      Button("Button 1") {}
+        .buttonStyle(.bordered)
+
+      Button("Button 1", role: .destructive) {}
+        .buttonStyle(.bordered)
+
+      Button("Button 3") {}
+        .buttonStyle(.borderedProminent)
+
+      Button("Button 4", role: .destructive) {}
+        .buttonStyle(.borderedProminent)
+    }
+  }
+  
+  func executeDelete() {
+    print("Now deleting...")
   }
 }
 
