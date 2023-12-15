@@ -8,27 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State private var showingAlert = false
+
   var body: some View {
-    VStack {
-      Image(systemName: "exclamationmark.icloud")
-        .foregroundColor(.red)
-        .font(.largeTitle)
-
-      Button("Button 1") {}
-        .buttonStyle(.bordered)
-
-      Button("Button 1", role: .destructive) {}
-        .buttonStyle(.bordered)
-
-      Button("Button 3") {}
-        .buttonStyle(.borderedProminent)
-
-      Button("Button 4", role: .destructive) {}
-        .buttonStyle(.borderedProminent)
+    Button("Show Alert") {
+      showingAlert = true
+    }
+    .alert("Important message", isPresented: $showingAlert) {
+      Button("Delete", role: .destructive) { }
+      Button("Cancel", role: .cancel) { }
+    } message: {
+        Text("Please read this.")
     }
   }
   
-  
+
   func executeDelete() {
     print("Now deleting...")
   }
